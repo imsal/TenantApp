@@ -150,76 +150,17 @@
 
         </div><!-- END jumbotron div -->
       </div><!-- END container div -->
-      <div clas="container">
-
-        <!-- Portfolio to Tenant -->
-        <div class="make-space">
-          <div class="row">
-            <div class="col-md-3">
-              <p>Portfolio:
-                <%= Portfolio.find(@tenant.portfolio_id).name %><!-- Portfolio Name -->
-              </p>
-            </div>
-
-            <div class="col-md-3">
-              <p>Property:
-                <%= Property.find(@tenant.property_id).name %><!-- Property Name -->
-              </p>
-            </div>
-
-            <div class="col-md-3">
-              <p>Building:
-                <%= Building.find(@tenant.building_id).name %><!-- Building Name -->
-              </p>
-
-            </div>
-
-            <div class="col-md-3">
-              <p>Suite:
-                <%= Suite.find(@tenant.suite_id).name %><!-- Suite Name -->
-              </p>
-
-            </div>
 
 
 
 
-          </div>
-
-        </div><!-- END Portfolio to Tenant -->
-
-
-
-
-        <!-- Files -->
-        <div class="make-space">
-          <p>Files</p>
-        </div>
-        <!-- END Files -->
+      <div class="actions">
+        <%= f.submit %>
+      </div>
 
 
 
-        <!-- Work Orders -->
-        <div class="make-space"><!-- Make Div subclass of Tenant -->
-          <p>Work Order Number 152: status</p><!-- delete example later -->
-
-        </div>
-        <!-- END Work Orders -->
-
-
-        <!-- HVAC info -->
-        <div class="make-space"><!-- Make HVAC Dic subclass of SUITE -->
-          <p>HVAC Information</p>
-        </div>
-        <!-- END HVAC info -->
-
-        <div class="actions">
-          <%= f.submit %>
-        </div>
-
-
-
-      </div><!-- END Container -->
+    </div><!-- END Container -->
 
     </div><!-- END Container -->
 

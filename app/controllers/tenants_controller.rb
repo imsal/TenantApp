@@ -1,13 +1,32 @@
 class TenantsController < ApplicationController
 
-  before_action :set_tenant, only: [:show, :edit, :update]
-  before_action :set_ids_for_edit, only: [:edit, :update]
+  before_action :set_tenant, only: [:show, :edit, :update]#, :destroy]
+  before_action :set_other_ids, only: [:edit, :update, :new]
+
+  def new
+    @tenant = Tenant.new
+  end
 
 
   def show
   end
 
   def edit
+  end
+
+
+  def create
+    @tenant = Tenant.new(tenant_params)
+
+    respond_to do |format|
+      if @tenant.save
+        format.html { redirect_to @tenant, notice: 'Tenant was successfully created.' }
+        format.json { render :show, status: :created, location: @tenant }
+      else
+        format.html { render :new }
+        format.json { render json: @tenant.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def update
@@ -30,7 +49,7 @@ class TenantsController < ApplicationController
     @tenant = Tenant.find(params[:id])
   end
 
-  def set_ids_for_edit
+  def set_other_ids
     @portfolio = Portfolio.all
     @property = Property.all
     @building = Building.all
