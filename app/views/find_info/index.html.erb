@@ -1,0 +1,88 @@
+<h1>Portfolio</h1>
+
+<table>
+<% @portfolio.each do |portfolio| %>
+    <tr>
+    <td><%= portfolio.id %></td>
+    <td><%= portfolio.name %></td>
+    <td><%= portfolio.team %></td>
+    </tr>
+<% end %>
+</table>
+
+
+<h1>Property List</h1>
+
+<table>
+<% @property.each do |property| %>
+    <tr>
+    <td><%= property.id %></td>
+    <td><%= property.name %></td>
+    <td><%= property.entity %></td>
+    <td><%= property.sq_ft %></td>
+    <td><%= property.tax %></td>
+    <td> <%= (Portfolio.find(property.portfolio_id)).name %> </td>
+    </tr>
+
+<% end %>
+</table>
+
+<h1>Building List</h1>
+
+<table>
+  <% @building.each do |building| %>
+      <tr>
+        <td><%= building.id %></td>
+        <td><%= building.name %></td>
+        <td><%= (Portfolio.find(Property.find(building.property_id))).name %></td> <!-- Portfolio Name -->
+        <td><%= (Property.find(building.property_id)).name %></td> <!-- Property Name -->
+      </tr>
+
+  <% end %>
+</table>
+
+<h1>Suite List</h1>
+
+<table>
+  <% @suite.each do |suite| %>
+      <tr>
+        <td><%= suite.id %></td>
+        <td><%= suite.lock_box_location %></td>
+        <td><%= suite.lock_box_combo %></td>
+        <td><%= suite.sq_ft %></td>
+        <td><%= suite.vacant %></td>
+        <td><%= Portfolio.find(Property.find(Building.find(suite.building_id))).name %></td><!-- Portfolio Name -->
+        <td><%= Property.find(Building.find(suite.building_id)).name %></td><!-- Property Name -->
+        <td><%= Building.find(suite.building_id).name %></td><!-- Building Name -->
+      </tr>
+
+  <% end %>
+</table>
+
+<h1>Tenant List</h1>
+
+<table>
+  <% @tenant.each do |tenant| %>
+      <tr>
+        <td><%= tenant.id %></td>
+        <td><%= tenant.first_name %></td>
+        <td><%= tenant.last_name %></td>
+        <td><%= tenant.job_title %></td>
+        <td><%= tenant.contact_type %></td>
+        <td><%= tenant.company_name %></td>
+        <td><%= tenant.email %></td>
+        <td><%= tenant.preferred_method_of_contact %></td>
+        <td><%= tenant.email %></td>
+        <td><%= tenant.phone_direct %></td>
+        <td><%= tenant.phone_direct_ext %></td>
+        <td><%= tenant.phone_mobile %></td>
+        <td><%= tenant.fax_number %></td>
+        <td><%= tenant.notes %></td>
+        <td><%= Portfolio.find(Property.find(Building.find(Suite.find(tenant.suite_id)))).name %></td><!-- Portfolio Name -->
+        <td><%= Property.find(Building.find(Suite.find(tenant.suite_id))).name %></td><!-- Property Name -->
+        <td><%= Building.find(Suite.find(tenant.suite_id)).name %><!-- Building Name -->
+        <td><%= Suite.find(tenant.suite_id).name %></td><!-- Suite Name -->
+      </tr>
+
+  <% end %>
+</table>

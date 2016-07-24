@@ -1,0 +1,201 @@
+
+
+<%= form_for(@tenant) do |f| %>
+    <% if @tenant.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@tenant.errors.count, "error") %> prohibited this tenant from being saved:</h2>
+
+          <ul>
+            <% @tenant.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+
+
+
+        </div>
+    <% end %>
+
+
+
+    <div class="container">
+
+
+      <div class="container">
+        <div class="jumbotron">
+
+          <div class="contact-info">
+
+            <div class="row">
+              <div class="col-md-6">
+
+                <div class="field">
+
+                  <%= f.label 'First Name' %>
+                  <%= f.text_field :first_name %>
+
+                </div>
+
+                <div class="field">
+                  <%= f.label 'Last Name' %>
+                  <%= f.text_field :last_name %>
+
+                </div>
+
+
+
+                <div class="field">
+                  <%= f.label 'Job Title' %>
+                  <%= f.text_field :job_title %>
+                </div>
+
+                <div class="field">
+                  <%= f.label 'Company Name' %>
+                  <%= f.text_field :company_name %>
+                </div>
+
+                 <!-- CHANGE ID FORM -->
+
+                <div class="field"><!-- Suite -->
+                  <%= f.label 'Suite' %>
+                  <%= f.select :suite_id, options_for_select  %>
+                  <%= f.select(:tenant, :city_id, [['Lisbon', 1], ['Madrid', 2], ...]) %>
+                </div>
+
+
+                <!-- END CHANGE ID FORM -->
+
+
+
+                <div class="field">
+                  <%= f.label 'Recent Notes' %>
+                  <%= f.text_field :notes %>
+                </div>
+
+
+
+
+              </div> <!-- End Column Div -->
+
+              <div class="col-md-6">
+
+
+                <div class="field">
+                  <%= f.label 'Email' %>
+                  <%= f.text_field :email %>
+                </div>
+
+                <div class="field">
+                  <%= f.label 'Phone Number' %>
+                  <%= f.text_field :phone_direct %>
+                </div>
+
+
+                <div class="field">
+                  <%= f.label 'Extension' %>
+                  <%= f.text_field :phone_direct_ext %>
+                </div>
+
+
+                <div class="field">
+                  <%= f.label 'Mobile Number' %>
+                  <%= f.text_field :phone_mobile %>
+                </div>
+
+
+                <div class="field">
+                  <%= f.label 'Fax Number' %>
+                  <%= f.text_field :fax_number %>
+                </div>
+
+
+
+                <div class="field">
+                  <%= f.label 'Preferred Method of Contact' %>
+                  <%= f.select :preferred_method_of_contact, ['Email', 'Office Phone', 'Mobile Phone'] %>
+                </div>
+
+                <div class="field">
+                  <%= f.label 'Role' %>
+                  <%= f.select :contact_type, ['Billing', 'Emergency', 'Admin', 'Facilities', 'Repairs'] %>
+                </div>
+
+
+
+
+              </div>
+
+
+            </div><!-- END row div -->
+
+          </div> <!-- END div contact-info -->
+
+        </div><!-- END jumbotron div -->
+      </div><!-- END container div -->
+      <div clas="container">
+
+        <!-- Portfolio to Tenant -->
+        <div class="make-space">
+          <div class="row">
+            <div class="col-md-12">
+
+              <p class="make-space-title">Portfolio:
+                <%= Portfolio.find(Property.find(Building.find(Suite.find(@tenant.suite_id)))).name %> |<!-- Portfolio Name -->
+
+
+                Property:
+                <%= Property.find(Building.find(Suite.find(@tenant.suite_id))).name %> |<!-- Property Name -->
+
+
+                Building:
+                <%= Building.find(Suite.find(@tenant.suite_id)).name %> |<!-- Building Name -->
+
+
+                Suite Number:
+                <%= Suite.find(@tenant.suite_id).name %><!-- Suite Name -->
+              </p>
+            </div>
+          </div>
+
+        </div><!-- END Portfolio to Tenant -->
+
+
+
+
+        <!-- Files -->
+        <div class="make-space">
+          <p>Files</p>
+        </div>
+        <!-- END Files -->
+
+
+
+        <!-- Work Orders -->
+        <div class="make-space"><!-- Make Div subclass of Tenant -->
+          <p>Work Order Number 152: status</p><!-- delete example later -->
+
+        </div>
+        <!-- END Work Orders -->
+
+
+        <!-- HVAC info -->
+        <div class="make-space"><!-- Make HVAC Dic subclass of SUITE -->
+          <p>HVAC Information</p>
+        </div>
+        <!-- END HVAC info -->
+
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+
+
+
+      </div><!-- END Container -->
+
+    </div><!-- END Container -->
+
+
+
+
+
+<% end %>

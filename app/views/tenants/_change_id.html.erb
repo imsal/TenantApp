@@ -1,0 +1,36 @@
+<div class="field">
+
+</div>
+
+<div class="field">
+
+</div>
+
+<div class="field">
+
+</div>
+
+
+<%= form_for(@tenant) do |f| %>
+    <% if @tenant.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@tenant.errors.count, "error") %> prohibited this tenant from being saved:</h2>
+
+          <ul>
+            <% @tenant.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+
+
+
+        </div>
+    <% end %>
+
+<div class="field"><!-- Suite -->
+  <%= f.label 'Suite' %>
+  <%= f.select :suite_id, Suite.find(@tenant.suite_id).name %>
+</div>
+
+<% end %>
+
