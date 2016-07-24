@@ -5,6 +5,7 @@ class CreateBuildings < ActiveRecord::Migration
       t.belongs_to :property, index: true
       t.string :name # name of building.. building A, building B ... etc.
       t.string :address # Street number, street name
+      t.string :city
       t.string :state # e.g. California
       t.string :zip_code # building zip code
 

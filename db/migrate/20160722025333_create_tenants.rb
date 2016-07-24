@@ -3,8 +3,10 @@ class CreateTenants < ActiveRecord::Migration
     create_table :tenants do |t|
       t.belongs_to :suite, index: true
       ## test here
-      t.belongs_to
 
+      t.belongs_to :building, index: true
+      t.belongs_to :property, index: true
+      t.belongs_to :portfolio, index: true
 
       # end test
       t.string :first_name

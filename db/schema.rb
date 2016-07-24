@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20160722025333) do
     t.integer  "property_id"
     t.string   "name"
     t.string   "address"
+    t.string   "city"
     t.string   "state"
     t.string   "zip_code"
     t.datetime "created_at",  null: false
@@ -59,6 +60,9 @@ ActiveRecord::Schema.define(version: 20160722025333) do
 
   create_table "tenants", force: :cascade do |t|
     t.integer  "suite_id"
+    t.integer  "building_id"
+    t.integer  "property_id"
+    t.integer  "portfolio_id"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "job_title"
@@ -76,6 +80,9 @@ ActiveRecord::Schema.define(version: 20160722025333) do
     t.datetime "updated_at",                            null: false
   end
 
+  add_index "tenants", ["building_id"], name: "index_tenants_on_building_id"
+  add_index "tenants", ["portfolio_id"], name: "index_tenants_on_portfolio_id"
+  add_index "tenants", ["property_id"], name: "index_tenants_on_property_id"
   add_index "tenants", ["suite_id"], name: "index_tenants_on_suite_id"
 
 end

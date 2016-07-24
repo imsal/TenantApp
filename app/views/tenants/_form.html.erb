@@ -54,14 +54,32 @@
                   <%= f.text_field :company_name %>
                 </div>
 
-                 <!-- CHANGE ID FORM -->
+                <!-- CHANGE ID FORM -->
 
-                <div class="field"><!-- Suite -->
-                  <%= f.label 'Suite' %>
-                  <%= f.select :suite_id, options_for_select  %>
-                  <%= f.select(:tenant, :city_id, [['Lisbon', 1], ['Madrid', 2], ...]) %>
+                <!-- Portfolio -->
+                <div class="field">
+                  <%= f.label 'Portfolio' %>
+                  <%= f.select :portfolio_id, options_from_collection_for_select(@portfolio, :id, :name) %>
                 </div>
 
+                <!-- Property -->
+                <div class="field">
+                  <%= f.label 'Property' %>
+                  <%= f.select :property_id, options_from_collection_for_select(@property, :id, :name) %>
+                </div>
+
+                <!-- Building -->
+                <div class="field">
+                  <%= f.label 'Building' %>
+                  <%= f.select :building_id, options_from_collection_for_select(@building, :id, :name) %>
+                </div>
+
+
+                <!-- Suite -->
+                <div class="field">
+                  <%= f.label 'Suite' %>
+                  <%= f.select :suite_id, options_from_collection_for_select(@suite, :id, :name) %>
+                </div>
 
                 <!-- END CHANGE ID FORM -->
 
@@ -137,24 +155,35 @@
         <!-- Portfolio to Tenant -->
         <div class="make-space">
           <div class="row">
-            <div class="col-md-12">
-
-              <p class="make-space-title">Portfolio:
-                <%= Portfolio.find(Property.find(Building.find(Suite.find(@tenant.suite_id)))).name %> |<!-- Portfolio Name -->
-
-
-                Property:
-                <%= Property.find(Building.find(Suite.find(@tenant.suite_id))).name %> |<!-- Property Name -->
-
-
-                Building:
-                <%= Building.find(Suite.find(@tenant.suite_id)).name %> |<!-- Building Name -->
-
-
-                Suite Number:
-                <%= Suite.find(@tenant.suite_id).name %><!-- Suite Name -->
+            <div class="col-md-3">
+              <p>Portfolio:
+                <%= Portfolio.find(@tenant.portfolio_id).name %><!-- Portfolio Name -->
               </p>
             </div>
+
+            <div class="col-md-3">
+              <p>Property:
+                <%= Property.find(@tenant.property_id).name %><!-- Property Name -->
+              </p>
+            </div>
+
+            <div class="col-md-3">
+              <p>Building:
+                <%= Building.find(@tenant.building_id).name %><!-- Building Name -->
+              </p>
+
+            </div>
+
+            <div class="col-md-3">
+              <p>Suite:
+                <%= Suite.find(@tenant.suite_id).name %><!-- Suite Name -->
+              </p>
+
+            </div>
+
+
+
+
           </div>
 
         </div><!-- END Portfolio to Tenant -->

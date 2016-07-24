@@ -1,8 +1,8 @@
 class Tenant < ActiveRecord::Base
+
   attr_accessor :suite_attributes
   has_one :suite, as: :identifiable
   accepts_nested_attributes_for :suite
-
 
 
 

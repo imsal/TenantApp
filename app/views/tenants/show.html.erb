@@ -18,11 +18,12 @@
             <p><%= @tenant.job_title %> for <%= @tenant.company_name %></p>
 
             <p>
-              Premise Address:
-              <%= (Building.find(Suite.find(@tenant.suite_id))).address %> <!-- Building Address -->
-              <%= Suite.find(@tenant.suite_id).name %><!-- Suite Name -->
-              <%= Building.find(Suite.find(@tenant.suite_id)).state %><!-- Building State -->
-              <%= Building.find(Suite.find(@tenant.suite_id)).zip_code %><!-- Building Zip Code -->
+              Premise Address: <br />
+
+              <%= (Building.find(@tenant.building_id)).address %> <!-- Building Address -->
+              <%= Suite.find(@tenant.suite_id).name %> <!-- Suite Name / Number -->
+              <%= Building.find(@tenant.building_id).state %><!-- Building State -->
+              <%= Building.find(@tenant.building_id).zip_code %><!-- Building Zip Code -->
             </p>
 
 
@@ -75,24 +76,35 @@
     <!-- Portfolio to Tenant -->
     <div class="make-space">
       <div class="row">
-        <div class="col-md-12">
-
-          <p class="make-space-title">Portfolio:
-            <%= Portfolio.find(Property.find(Building.find(Suite.find(@tenant.suite_id)))).name %> |<!-- Portfolio Name -->
-
-
-            Property:
-            <%= Property.find(Building.find(Suite.find(@tenant.suite_id))).name %> |<!-- Property Name -->
-
-
-            Building:
-            <%= Building.find(Suite.find(@tenant.suite_id)).name %> |<!-- Building Name -->
-
-
-            Suite Number:
-            <%= Suite.find(@tenant.suite_id).name %><!-- Suite Name -->
+        <div class="col-md-3">
+          <p>Portfolio:
+          <%= Portfolio.find(@tenant.portfolio_id).name %><!-- Portfolio Name -->
           </p>
         </div>
+
+        <div class="col-md-3">
+          <p>Property:
+          <%= Property.find(@tenant.property_id).name %><!-- Property Name -->
+          </p>
+        </div>
+
+        <div class="col-md-3">
+          <p>Building:
+          <%= Building.find(@tenant.building_id).name %><!-- Building Name -->
+          </p>
+
+        </div>
+
+        <div class="col-md-3">
+          <p>Suite:
+          <%= Suite.find(@tenant.suite_id).name %><!-- Suite Name -->
+          </p>
+
+        </div>
+
+
+
+
       </div>
 
     </div><!-- END Portfolio to Tenant -->
