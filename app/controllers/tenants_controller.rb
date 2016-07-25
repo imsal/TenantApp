@@ -57,7 +57,7 @@ class TenantsController < ApplicationController
   end
 
   def tenant_params
-    params.require(:tenant).permit(:id, :suite_id, :building_id, :property_id, :portfolio_id, :first_name, :last_name, :job_title, :contact_type, :company_name, :email, :preferred_method_of_contact, :current, :phone_direct, :phone_direct_ext, :phone_mobile, :fax_number, :notes,)
+    params.require(:tenant).permit(:id,:suite_id, :building_id, :property_id, :portfolio_id, :first_name, :last_name, :job_title, :contact_type, :company_name, :email, :preferred_method_of_contact, :current, :phone_direct, :phone_direct_ext, :phone_mobile, :fax_number, :notes,)
   end
 
 end

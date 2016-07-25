@@ -130,12 +130,12 @@
 
                 <div class="field">
                   <%= f.label 'Preferred Method of Contact' %>
-                  <%= f.select :preferred_method_of_contact, ['Email', 'Office Phone', 'Mobile Phone'] %>
+                  <%= f.select :preferred_method_of_contact, [ nil,'Email', 'Office Phone', 'Mobile Phone', 'No Preference'] %>
                 </div>
 
                 <div class="field">
                   <%= f.label 'Role' %>
-                  <%= f.select :contact_type, ['Billing', 'Emergency', 'Admin', 'Facilities', 'Repairs'] %>
+                  <%= f.select :contact_type, [nil, 'Billing', 'Emergency', 'Admin', 'Facilities', 'Repairs'] %>
                 </div>
 
 
