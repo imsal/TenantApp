@@ -11,3 +11,11 @@
 
 
 
+
+<h5>Properties</h5>
+<% @properties.each do |property| %>
+
+    <%= link_to "#{property.name}", "../properties/#{property.id}" %> <br />
+
+
+<% end %>

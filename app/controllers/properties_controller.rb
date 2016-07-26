@@ -14,6 +14,7 @@ class PropertiesController < ApplicationController
 
 
   def show
+    @buildings = @property.buildings
   end
 
   def create

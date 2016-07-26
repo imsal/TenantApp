@@ -10,6 +10,7 @@ class BuildingsController < ApplicationController
   end
 
   def show
+    @suites = @building.suites
   end
 
   def edit

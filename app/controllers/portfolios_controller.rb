@@ -13,6 +13,7 @@ class PortfoliosController < ApplicationController
   end
 
   def show
+    @properties = @portfolio.properties # subclass of portfolio
   end
 
   def edit

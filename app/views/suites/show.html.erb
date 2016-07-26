@@ -6,3 +6,13 @@
 <%= @suite.vacant %>
 <%= @suite.building_id %>
 <%= @suite.name %>
+
+
+<h5>Tenants</h5>
+
+<% @tenants.each do |tenant| %>
+
+    <%= link_to "#{tenant.first_name + ' ' + tenant.last_name}", "../tenants/#{tenant.id}" %>
+
+
+<% end %>

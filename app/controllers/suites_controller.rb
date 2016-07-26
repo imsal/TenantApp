@@ -10,6 +10,7 @@ class SuitesController < ApplicationController
     # GET /tenants/1
     # GET /tenants/1.json
     def show
+      @tenants = @suite.tenants
     end
 
     # GET /tenants/new

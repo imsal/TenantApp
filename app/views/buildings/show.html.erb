@@ -7,3 +7,13 @@
 <%= @building.city %>
 <%= @building.state %>
 <%= @building.zip_code %>
+
+<h5>Suites</h5>
+
+<% @suites.each do |suite| %>
+
+
+    <%= link_to suite.name, "../suites/#{suite.id}" %> <br />
+
+
+<% end %>

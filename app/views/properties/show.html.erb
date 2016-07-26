@@ -1,8 +1,22 @@
 <h1>Properties</h1>
 
+<p>ID</p>
 <%= @property.id %>
+<p>Name</p>
 <%= @property.name %>
+<p>Entity</p>
 <%= @property.entity %>
+<p>Square Feet</p>
 <%= @property.sq_ft %>
+<p>Tax Id</p>
 <%= @property.tax %>
+<p>Portfolio Id</p>
 <%= @property.portfolio_id %>
+
+
+<h5>Buildings</h5>
+<% @buildings.each do |building| %>
+
+    <%= link_to "#{building.name}", "../buildings/#{building.id}" %> <br />
+
+<% end %>
