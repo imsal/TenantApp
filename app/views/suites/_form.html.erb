@@ -1,0 +1,48 @@
+<%= form_for @suite do |f| %>
+    <% if @suite.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@suite.errors.count, "error") %> prohibited this suite from being saved:</h2>
+
+          <ul>
+            <% @suite.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+
+    <div class="field">
+      <%= f.label :lock_box_location %>
+      <%= f.text_field :lock_box_location %>
+    </div>
+
+    <div class="field">
+      <%= f.label :lock_box_combo %>
+      <%= f.text_field :lock_box_combo %>
+    </div>
+
+    <div class="field">
+      <%= f.label :sq_ft %>
+      <%= f.text_field :sq_ft %>
+    </div>
+
+    <div class="field">
+      <%= f.label :vacant %>
+      <%= f.check_box :vacant %>
+    </div>
+
+    <div class="field">
+      <%= f.label :building_id %>
+      <%= f.text_field :building_id %>
+    </div>
+
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
