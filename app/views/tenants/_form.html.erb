@@ -59,26 +59,26 @@
                 <!-- Portfolio -->
                 <div class="field">
                   <%= f.label 'Portfolio' %>
-                  <%= f.select :portfolio_id, options_from_collection_for_select(@portfolio, :id, :name) %>
+                  <%= f.select :portfolio_id, options_from_collection_for_select(Portfolio.all, :id, :name) %>
                 </div>
 
                 <!-- Property -->
                 <div class="field">
                   <%= f.label 'Property' %>
-                  <%= f.select :property_id, options_from_collection_for_select(@property, :id, :name) %>
+                  <%= f.select :property_id, options_from_collection_for_select(Property.all, :id, :name) %>
                 </div>
 
                 <!-- Building -->
                 <div class="field">
                   <%= f.label 'Building' %>
-                  <%= f.select :building_id, options_from_collection_for_select(@building, :id, :name) %>
+                  <%= f.select :building_id, options_from_collection_for_select(Building.all, :id, :name) %>
                 </div>
 
 
                 <!-- Suite -->
                 <div class="field">
                   <%= f.label 'Suite' %>
-                  <%= f.select :suite_id, options_from_collection_for_select(@suite, :id, :name) %>
+                  <%= f.select :suite_id, options_from_collection_for_select(Suite.all, :id, :name) %>
                 </div>
 
                 <!-- END CHANGE ID FORM -->

@@ -12,7 +12,11 @@
 
 <% @tenants.each do |tenant| %>
 
-    <%= link_to "#{tenant.first_name + ' ' + tenant.last_name}", "../tenants/#{tenant.id}" %>
+    <%= link_to "#{tenant.first_name + ' ' + tenant.last_name}", "../tenants/#{tenant.id}" %> <br />
 
 
 <% end %>
+
+
+<br />
+<%= link_to 'Create New Tenant', new_tenant_path %>

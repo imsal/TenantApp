@@ -1,7 +1,7 @@
 class TenantsController < ApplicationController
 
   before_action :set_tenant, only: [:show, :edit, :update]#, :destroy]
-  before_action :set_other_ids, only: [:edit, :update, :new]
+
 
   def new
     @tenant = Tenant.new
@@ -50,12 +50,7 @@ class TenantsController < ApplicationController
     @tenant = Tenant.find(params[:id])
   end
 
-  def set_other_ids
-    @portfolio = Portfolio.all
-    @property = Property.all
-    @building = Building.all
-    @suite = Suite.all
-  end
+
 
   def tenant_params
     params.require(:tenant).permit(:id,:suite_id, :building_id, :property_id, :portfolio_id, :first_name, :last_name, :job_title, :contact_type, :company_name, :email, :preferred_method_of_contact, :current, :phone_direct, :phone_direct_ext, :phone_mobile, :fax_number, :notes,)

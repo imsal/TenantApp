@@ -12,10 +12,6 @@
     <% end %>
 
 
-    <div class="field">
-      <%= f.label :property_id %>
-      <%= f.text_field :property_id %>
-    </div>
 
     <div class="field">
       <%= f.label :name %>
@@ -37,6 +33,13 @@
       <%= f.label :zip_code %>
       <%= f.text_field :zip_code %>
     </div>
+
+    <div class="field">
+      <%= f.label :property_id %>
+      <%= f.select :property_id, options_from_collection_for_select(Property.all, :id, :name)  %>
+    </div>
+
+
 
     <div class="actions">
         <%= f.submit %>
