@@ -1,0 +1,2 @@
+class SuitesController < ApplicationController
+end
