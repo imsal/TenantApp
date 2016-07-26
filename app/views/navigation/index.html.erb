@@ -1,0 +1,53 @@
+<!-- START LIST PORTFOLIO THROUGH TENANTS (WORK ON APPEAR/DISSAPEARING DIVS)-->
+
+
+<h3>Navigation</h3>
+
+
+<% @portfolios.each do |portfolio| %>
+
+    <%= link_to portfolio.name, "portfolios/#{portfolio.id}"  %> <br/>
+
+
+    <% portfolio.properties.each do |property| %>
+
+        <%= link_to property.name, "properties/#{property.id}" %> <br/>
+
+        <% property.buildings.each do |building| %>
+
+            <%= link_to building.name, "buildings/#{building.id}" %> <br/>
+
+            <% building.suites.each do |suite| %>
+
+                <%= link_to suite.name, "suites/#{suite.id}" %> <br/>
+
+                <% suite.tenants.each do |tenant| %>
+
+                    <%= link_to (tenant.first_name + " " + tenant.last_name), "tenants/#{tenant.id}" %> <br/>
+
+
+                <% end %>
+
+
+            <% end %>
+
+
+
+        <% end %>
+
+    <% end %>
+
+<% end %>
+
+<!-- END LIST PORTFOLIO THROUGH TENANTS -->
+
+<!-- Create New -->
+
+<h5>Create New:</h5>
+<%= link_to 'Portfolio', new_portfolio_path %> <br/>
+<%= link_to 'Property', new_property_path %> <br/>
+<%= link_to 'Building', new_building_path %> <br/>
+<%= link_to 'Suite', new_suite_path %> <br/>
+<%= link_to 'Tenant', new_tenant_path %> <br/>
+
+

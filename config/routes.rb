@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+
+  get 'navigation' => 'navigation#index'
+
   resources :portfolios
   resources :properties
   resources :buildings
