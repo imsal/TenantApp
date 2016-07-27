@@ -19,8 +19,126 @@
 
     <%= link_to "#{building.name}", "../buildings/#{building.id}" %> <br />
 
+
+
+
+
+
 <% end %>
 
 <br />
+
+<h5>Vacant Suites</h5> <!-- Shows all Vacant Units for the Property -->
+
+<% @buildings.each do |building| %>
+
+    <% building.suites.each do |suite|%>
+
+        <%= suite.name if suite.vacant == true %> <br /> <!-- Displays the vacant Suites -->
+
+    <% end %>
+
+<% end %>
+
+<br />
+
+
+<!-- Other Data to Include on the properties show page -->
+
+<p>
+
+  Regular Sized Parking Stalls:
+  Semi Truck Stalls:
+  Handicapped Parking Stalls:
+  Year Built:
+  Total Number of Buildings:
+  Total Number of Units:
+  Building Type: Concrete Tilt Up
+  Roof Type:
+  Roof Access:
+  Fire Sprinklers:
+  Alarms:
+  Water Meter Locations:
+  Gas:
+  Backflow Location:
+  Backflow Cage Code:
+  Electricity Meters:
+  Emon Demon:
+  Alarm Panel Location:
+
+</p>
+
+
+<!-- Vendor Data -->
+
+
+<p>
+
+  Electricity -
+  Water -
+  Gas -
+
+
+  Asphalt -
+  Board Up/Glass Repair -
+  Day Porter -
+  Electrical -
+  Elevator -
+  Fencing -
+  Fire Alarm Inspection -
+  Fire Alarm Monitoring -
+  Fire Sprinkler Repair -
+  Gate Repair -
+  General Repairs -
+  Graffiti Removal-
+  HVAC - Tri Pacific Heating and Air -
+  Janitorial -
+  Junk Removal -
+  Landscaping -
+  Lighting Maintenance -
+  Locksmith -
+  Pest Control -
+  Plumbing -
+  Roof -
+  Security Alarm -
+  Security Patrol -
+  Signage -
+  Sweeping -
+  Towing Company -
+  Window Washing -
+
+</p>
+
+<!-- Inner Company Data Per Property -->
+
+<p>
+
+  Property Codes
+  .160015
+  160016 - 22343 La Palma Ave (Yorba Linda),Yorba Linda
+  160017 - 22345 La Palma Ave (Yorba Linda),Yorba Linda
+  160018 - 22347 La Palma Ave (Yorba Linda),Yorba Linda
+  160019 - 22349 La Palma Ave (Yorba Linda),Yorba Linda
+  Zip: 92887
+
+  Tax ID:
+  Legal Entity:
+
+  Lockbox Vendor ID:
+
+  Leasing Broker:
+
+  Accountant:
+
+  AP: Latiffia
+
+
+</p>
+
+
+
+
+
+<!-- Update this data later -->
 
 <%= link_to 'Create new Building', new_building_path %>
