@@ -31,27 +31,27 @@
 
                 <div class="field">
 
-                  <%= f.label 'First Name' %>
-                  <%= f.text_field :first_name %>
+                  <%= f.label :first_name, 'First Name' %>
+                  <%= f.text_field :first_name, :placeholder => 'First Name' %>
 
                 </div>
 
                 <div class="field">
-                  <%= f.label 'Last Name' %>
-                  <%= f.text_field :last_name %>
+                  <%= f.label :last_name, 'Last Name' %>
+                  <%= f.text_field :last_name, :placeholder => 'Last Name' %>
 
                 </div>
 
 
 
                 <div class="field">
-                  <%= f.label 'Job Title' %>
-                  <%= f.text_field :job_title %>
+                  <%= f.label :job_title ,'Job Title' %>
+                  <%= f.text_field :job_title, :placeholder => 'Job Title' %>
                 </div>
 
                 <div class="field">
-                  <%= f.label 'Company Name' %>
-                  <%= f.text_field :company_name %>
+                  <%= f.label :company_name, 'Company Name' %>
+                  <%= f.text_field :company_name, :placeholder => 'Company Name' %>
                 </div>
 
                 <!-- CHANGE ID FORM -->
@@ -86,8 +86,8 @@
 
 
                 <div class="field">
-                  <%= f.label 'Recent Notes' %>
-                  <%= f.text_field :notes %>
+                  <%= f.label :notes, 'Notes' %>
+                  <%= f.text_field :notes, :placeholder => 'Notes' %>
                 </div>
 
 
@@ -99,42 +99,42 @@
 
 
                 <div class="field">
-                  <%= f.label 'Email' %>
-                  <%= f.text_field :email %>
+                  <%= f.label :email, 'Email' %>
+                  <%= f.text_field :email, :placeholder => 'Email' %>
                 </div>
 
                 <div class="field">
-                  <%= f.label 'Phone Number' %>
-                  <%= f.text_field :phone_direct %>
-                </div>
-
-
-                <div class="field">
-                  <%= f.label 'Extension' %>
-                  <%= f.text_field :phone_direct_ext %>
+                  <%= f.label :phone_direct, 'Phone Number' %>
+                  <%= f.text_field :phone_direct, :placeholder => 'Phone Number' %>
                 </div>
 
 
                 <div class="field">
-                  <%= f.label 'Mobile Number' %>
-                  <%= f.text_field :phone_mobile %>
+                  <%= f.label :phone_direct_ext, 'Extension' %>
+                  <%= f.text_field :phone_direct_ext, :placeholder => 'Extension' %>
                 </div>
 
 
                 <div class="field">
-                  <%= f.label 'Fax Number' %>
-                  <%= f.text_field :fax_number %>
+                  <%= f.label :phone_mobile, 'Mobile Number' %>
+                  <%= f.text_field :phone_mobile, :placeholder => 'Mobile Number' %>
+                </div>
+
+
+                <div class="field">
+                  <%= f.label :fax_number, 'Fax Number' %>
+                  <%= f.text_field :fax_number, :placeholder => 'Fax Number' %>
                 </div>
 
 
 
                 <div class="field">
-                  <%= f.label 'Preferred Method of Contact' %>
+                  <%= f.label :preferred_method_of_contact, 'Preferred Method of Contact' %>
                   <%= f.select :preferred_method_of_contact, [ nil,'Email', 'Office Phone', 'Mobile Phone', 'No Preference'] %>
                 </div>
 
                 <div class="field">
-                  <%= f.label 'Role' %>
+                  <%= f.label :contact_type, 'Role' %>
                   <%= f.select :contact_type, [nil, 'Billing', 'Emergency', 'Admin', 'Facilities', 'Repairs'] %>
                 </div>
 

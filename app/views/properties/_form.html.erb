@@ -12,24 +12,24 @@
     <% end %>
 
     <div class="field">
-      <%= f.label :name %>
+      <%= f.label :name, 'Property Name' %>
 
-      <%= f.text_field :name %>
+      <%= f.text_field :name, :placeholder => 'Property Name' %>
     </div>
 
     <div class="field">
-      <%= f.label :entity %>
-      <%= f.text_field :entity %>
+      <%= f.label :entity, 'Entity' %>
+      <%= f.text_field :entity, :placeholder => 'Entity' %>
     </div>
 
     <div class="field">
-      <%= f.label :sq_ft %>
-      <%= f.text_field :sq_ft %>
+      <%= f.label :sq_ft, 'Sq Ft' %>
+      <%= f.text_field :sq_ft, :placeholder => 'Sq Ft' %>
     </div>
 
     <div class="field">
-      <%= f.label :tax %>
-      <%= f.text_field :tax %>
+      <%= f.label :tax, 'Tax ID' %>
+      <%= f.text_field :tax, :placeholder => 'Tax ID' %>
     </div>
 
     <div class="action">

@@ -8,18 +8,15 @@ Rails.application.routes.draw do
   resources :buildings
   resources :suites
   resources :tenants
-
   resources :find_info
-
   resources :welcome
 
   get 'signup' => 'users#new'
+  # Figure out how to disable /users/new while keeping the above alias
   resources :users
 
   get 'login' => 'sessions#new'
-
   post 'login' => 'sessions#create'
-
   delete 'logout' => 'sessions#destroy'
 
 

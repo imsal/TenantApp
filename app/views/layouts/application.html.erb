@@ -10,7 +10,7 @@
 <body>
 
 <!-- Start Login Check -->
-<% unless current_page?(login_path) %>
+<% unless (current_page?(login_path)) || (current_page?(signup_path)) %>
 
     <% if current_user  %>
         <ul class="login">
