@@ -1,4 +1,5 @@
 class FindInfoController < ApplicationController
+  before_action :require_user # Requires Basic Authentication To Access Page
 
 
   def index

@@ -1,5 +1,5 @@
 class PropertiesController < ApplicationController
-
+  before_action :require_user # Requires Basic Authentication To Access Page
   before_action :set_property, only: [:show, :edit, :update, :destroy]
 
 

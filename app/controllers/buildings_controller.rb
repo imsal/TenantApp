@@ -1,5 +1,5 @@
 class BuildingsController < ApplicationController
-
+  before_action :require_user # Requires Basic Authentication To Access Page
   before_action :set_building, only: [:show, :edit, :update, :destroy]
 
   def new
