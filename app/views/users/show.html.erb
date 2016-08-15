@@ -1,0 +1,16 @@
+<h3>Profile</h3>
+
+
+
+<%= current_user.email %>
+<%= current_user.first_name %>
+<%= current_user.last_name %>
+
+
+
+<h3>My Files</h3>
+<!-- File Upload-->
+<%= form_for current_user do |f| %>
+    <%= f.label :profile_picture, 'Profile Picture' %>
+    <%= f.file_field :profile_picture %>
+<% end %>

@@ -16,6 +16,11 @@ class UsersController < ApplicationController
     end
   end
 
+  # PROFILE SECTION
+  def show
+
+  end
+
 
   private
 

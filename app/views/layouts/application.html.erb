@@ -4,29 +4,13 @@
   <title>TenantContacts</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'bootstrap' %>
   <%= csrf_meta_tags %>
   <%= yield(:header) %>
 </head>
 <body>
 
-<!-- Start Login Check -->
-<% unless (current_page?(login_path)) || (current_page?(signup_path)) %>
-
-    <% if current_user  %>
-        <ul class="login">
-          <li><%= current_user.email %></li>
-          <li><%= link_to "Log out", logout_path, method: "delete" %></li>
-        </ul>
-    <% else %>
-        <ul class="login">
-          <li><%= link_to "Login", 'login' %></a></li>
-          <li><%= link_to "Signup", 'signup' %></a></li>
-        </ul>
-    <% end %>
-
-<% end %>
-
-<!-- End Login Check -->
+<%= render 'layouts/nav' %>
 
 
 <%= yield %>

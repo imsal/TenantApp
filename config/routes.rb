@@ -11,9 +11,15 @@ Rails.application.routes.draw do
   resources :find_info
   resources :welcome
 
+  ##### USER AREA ####
+
+
+
   get 'signup' => 'users#new'
   # Figure out how to disable /users/new while keeping the above alias
   resources :users
+
+  get 'profile' => 'users#show'
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'

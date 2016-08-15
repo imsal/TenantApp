@@ -1,4 +1,9 @@
+
+
+
+
 <%= form_for(:session, url: login_path) do |f| %>
+
     <div class="field">
     <%= f.email_field :email, :placeholder => 'Email' %>
     </div>
@@ -8,4 +13,6 @@
     <div class="actions">
     <%= f.submit 'Log in' %>
     </div>
+
 <% end %>
+
