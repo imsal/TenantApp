@@ -1,83 +1,53 @@
-<h1>Properties</h1>
-
-<p>ID</p>
-<%= @property.id %>
-<p>Name</p>
-<%= @property.name %>
-<p>Entity</p>
-<%= @property.entity %>
-<p>Square Feet</p>
-<%= @property.sq_ft %>
-<p>Tax Id</p>
-<%= @property.tax %>
-<p>Portfolio Id</p>
-<%= @property.portfolio_id %>
 
 
-<h5>Buildings</h5>
-<% @buildings.each do |building| %>
+<!-- Important Stuff -->
 
-    <%= link_to "#{building.name}", "../buildings/#{building.id}" %> <br />
+<div class="container-fluid">
 
 
 
+  <h1 class="text-center">
+    <%= @property.name %> <br />
+    <small><%= @property.entity %></small>
+  </h1>
+
+
+  <div class="row">
+
+
+    <div class="col-md-6">
+
+    </div>
+
+    <div class="col-md-6">
 
 
 
-<% end %>
 
-<br />
+    </div>
 
-<h5>Vacant Suites</h5> <!-- Shows all Vacant Units for the Property -->
 
-<% @buildings.each do |building| %>
+  </div>
 
-    <% building.suites.each do |suite|%>
 
-        <%= suite.name if suite.vacant == true %> <br /> <!-- Displays the vacant Suites -->
+</div>
 
-    <% end %>
-
-<% end %>
-
-<br />
 
 <!-- Files: Site Map, TT Insurance Requirements, Locations of Certain Things at Property (Backflow, Meters, Etc.)  -->
+<div class="make-space">
+  <p>Files</p>
+</div>
 
 
+<!-- Vendor Info -->
 
+<h5>Vendor Info</h5>
+<div class="make-space">
 
-
-
-<!-- Other Data to Include on the properties show page -->
-
-<p>
-
-  Regular Sized Parking Stalls:
-  Semi Truck Stalls:
-  Handicapped Parking Stalls:
-  Mailbox Ownership:
-  Year Built:
-  Total Number of Buildings:
-  Total Number of Units:
-  Building Type: Concrete Tilt Up
-  Roof Type:
-  Roof Access:
-  Fire Sprinklers:
-  Alarms:
-  Water Meter Locations:
-  Gas:
-  Backflow Location:
-  Backflow Cage Code:
-  Electricity Meters:
-  Emon Demon:
-  Alarm Panel Location:
-
-</p>
+</div>
 
 
 <!-- Vendor Data (Include Electricity, Gas, Water Log Here) -->
-
 
 <p>
 
@@ -116,6 +86,93 @@
 
 </p>
 
+
+
+
+
+
+
+
+<p>Square Feet: <%= @property.sq_ft %></p>
+
+<p>Tax Id: <%= @property.tax %></p>
+
+<!--<p>Portfolio Id</p>
+<%= @property.portfolio_id %> -->
+
+
+
+<h5>Buildings</h5>
+<% @buildings.each do |building| %>
+
+    <%= link_to "#{building.name}", "../buildings/#{building.id}" %> <br />
+
+<% end %>
+
+<br />
+
+<h5>Vacant Suites</h5> <!-- Shows all Vacant Units for the Property -->
+
+
+<% @buildings.each do |building| %>
+
+    <% building.suites.each do |suite|%>
+
+
+        <%= if suite.vacant then suite.name end %> <br /> <!-- Displays Vacant Suite -->
+
+    <% end %>
+
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Other Data to Include on the properties show page -->
+
+<p>
+
+  Regular Sized Parking Stalls:
+  Semi Truck Stalls:
+  Handicapped Parking Stalls:
+  Mailbox Ownership:
+  Year Built:
+  Total Number of Buildings:
+  Total Number of Units:
+  Building Type: Concrete Tilt Up
+  Roof Type:
+  Roof Access:
+  Fire Sprinklers:
+  Alarms:
+  Water Meter Locations:
+  Gas:
+  Backflow Location:
+  Backflow Cage Code:
+  Electricity Meters:
+  Emon Demon:
+  Alarm Panel Location:
+
+</p>
+
+
+
+
 <!-- Inner Company Data Per Property -->
 
 <p>
@@ -151,6 +208,15 @@
 
 
 
-<!-- Update this data later -->
+
+
+
+
+<!-- Less Important Stuff -->
+
+<p>ID: <%= @property.id %></p>
+
+
+<!-- Can probably remove later -->
 
 <%= link_to 'Create new Building', new_building_path %>

@@ -14,4 +14,52 @@
  *= require_self
  */
 
+.navbar {
+    margin: 4px
+}
 
+
+
+
+/* Tenant CSS */
+
+.contact-info
+{
+
+
+}
+
+.portfolio-to-tenant
+{
+
+
+}
+
+.make-space
+{
+    align-self: center;
+    border: 1px solid black;
+    width: 90%;
+    margin: 20px;
+    padding: 10px;
+
+}
+
+
+.make-space-title
+{
+    text-align: center;
+
+
+}
+
+
+.notes{
+    align-self: center;
+    border: 1px solid black;
+    width: 100%;
+    padding: 10px;
+    align-content: center;
+    background-color: #FFFFFF;
+
+}
