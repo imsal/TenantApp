@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :tenants
   resources :find_info
   resources :welcome
+  resources :vendors
+  resources :contacts
 
   ##### USER AREA ####
 

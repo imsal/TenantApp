@@ -5,6 +5,9 @@ class Tenant < ActiveRecord::Base
   accepts_nested_attributes_for :suite
 
 
+  has_many :contacts
+
+
 
   validates :email, :allow_blank => true, format: { with: /\A([\w+\-]\.?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i , message: "Please enter a valid email address." }
   validates :phone_direct, :allow_nil => true, format: {with: /\d?\D?\d{3}\D?\d{3}\D?\d{4}/, message: "Please enter a valid phone number."}

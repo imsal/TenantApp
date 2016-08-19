@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160814225838) do
+ActiveRecord::Schema.define(version: 20160819012746) do
 
   create_table "buildings", force: :cascade do |t|
     t.integer  "property_id"
@@ -25,6 +25,24 @@ ActiveRecord::Schema.define(version: 20160814225838) do
   end
 
   add_index "buildings", ["property_id"], name: "index_buildings_on_property_id"
+
+  create_table "contacts", force: :cascade do |t|
+    t.string   "type"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone"
+    t.string   "phone_ext"
+    t.string   "mobile_phone"
+    t.string   "email"
+    t.string   "fax"
+    t.string   "preferred_method_of_contact"
+    t.string   "notes"
+    t.string   "job_title"
+    t.integer  "tenant_id"
+    t.integer  "vendor_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
 
   create_table "portfolios", force: :cascade do |t|
     t.string   "name"
@@ -92,6 +110,14 @@ ActiveRecord::Schema.define(version: 20160814225838) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "vendors", force: :cascade do |t|
+    t.string   "company_name"
+    t.string   "service_type"
+    t.string   "website"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
 end
