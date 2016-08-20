@@ -1,5 +1,5 @@
 class PortfoliosController < ApplicationController
-  before_action :require_user # Requires Basic Authentication To Access Page
+  #before_action :require_user # Requires Basic Authentication To Access Page
   before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
 
 
@@ -58,5 +58,6 @@ class PortfoliosController < ApplicationController
   def set_portfolio
     @portfolio = Portfolio.find(params[:id])
   end
+
 
 end

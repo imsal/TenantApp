@@ -1,15 +1,14 @@
 class PropertiesController < ApplicationController
-  before_action :require_user # Requires Basic Authentication To Access Page
+  #before_action :require_user # Requires Basic Authentication To Access Page
   before_action :set_property, only: [:show, :edit, :update, :destroy]
 
 
-
-
-
-
-
   def new
-    @property = Property.new
+    #@portfolio = Portfolio.find(params[:portfolio])
+    #@property = Property.new
+
+      @portfolio =  Portfolio.find(params[:Portfolio])
+      @property = @portfolio.properties.build
   end
 
 

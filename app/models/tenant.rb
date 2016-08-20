@@ -1,11 +1,16 @@
 class Tenant < ActiveRecord::Base
 
+=begin
   attr_accessor :suite_attributes
   has_one :suite, as: :identifiable
   accepts_nested_attributes_for :suite
+=end
 
+
+#  has_many :contacts
 
   has_many :contacts
+  has_and_belongs_to_many :suites
 
 
 

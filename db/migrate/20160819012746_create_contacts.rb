@@ -4,17 +4,18 @@ class CreateContacts < ActiveRecord::Migration
       t.string :type # Vendor / Utility / Tenant
       t.string :first_name
       t.string :last_name
-      t.string :phone
-      t.string :phone_ext
-      t.string :mobile_phone
       t.string :email
-      t.string :fax
       t.string :preferred_method_of_contact
       t.string :notes
       t.string :job_title
 
-      t.belongs_to :tenant
-      t.belongs_to :vendor
+      t.integer :phone, :limit => 8
+      t.integer :phone_ext, :limit => 8
+      t.integer :mobile_phone, :limit => 8
+      t.integer :fax, :limit => 8
+
+      t.belongs_to :tenant, index: true
+      t.belongs_to :vendor, index: true
 
       t.timestamps null: false
     end

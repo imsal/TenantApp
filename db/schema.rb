@@ -30,19 +30,22 @@ ActiveRecord::Schema.define(version: 20160819012746) do
     t.string   "type"
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "phone"
-    t.string   "phone_ext"
-    t.string   "mobile_phone"
     t.string   "email"
-    t.string   "fax"
     t.string   "preferred_method_of_contact"
     t.string   "notes"
     t.string   "job_title"
+    t.integer  "phone",                       limit: 8
+    t.integer  "phone_ext",                   limit: 8
+    t.integer  "mobile_phone",                limit: 8
+    t.integer  "fax",                         limit: 8
     t.integer  "tenant_id"
     t.integer  "vendor_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
+
+  add_index "contacts", ["tenant_id"], name: "index_contacts_on_tenant_id"
+  add_index "contacts", ["vendor_id"], name: "index_contacts_on_vendor_id"
 
   create_table "portfolios", force: :cascade do |t|
     t.string   "name"
@@ -78,29 +81,16 @@ ActiveRecord::Schema.define(version: 20160819012746) do
 
   create_table "tenants", force: :cascade do |t|
     t.integer  "suite_id"
-    t.integer  "building_id"
-    t.integer  "property_id"
-    t.integer  "portfolio_id"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "job_title"
-    t.string   "contact_type"
     t.string   "company_name"
-    t.string   "email"
-    t.string   "preferred_method_of_contact"
+    t.string   "service_type"
+    t.string   "website"
+    t.string   "billing_address"
     t.boolean  "current"
-    t.integer  "phone_direct",                limit: 8
-    t.integer  "phone_direct_ext",            limit: 8
-    t.integer  "phone_mobile",                limit: 8
-    t.integer  "fax_number",                  limit: 8
     t.text     "notes"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
-  add_index "tenants", ["building_id"], name: "index_tenants_on_building_id"
-  add_index "tenants", ["portfolio_id"], name: "index_tenants_on_portfolio_id"
-  add_index "tenants", ["property_id"], name: "index_tenants_on_property_id"
   add_index "tenants", ["suite_id"], name: "index_tenants_on_suite_id"
 
   create_table "users", force: :cascade do |t|
@@ -113,11 +103,14 @@ ActiveRecord::Schema.define(version: 20160819012746) do
   end
 
   create_table "vendors", force: :cascade do |t|
+    t.integer  "property_id"
     t.string   "company_name"
     t.string   "service_type"
     t.string   "website"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
+
+  add_index "vendors", ["property_id"], name: "index_vendors_on_property_id"
 
 end
